@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from bday.model import bday
 
 def Homepage(request):
     data = {}
