@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
-{% block title %}{% endblock title %}
-{% block heading %}{% endblock heading %}
+{% load socialaccount %}
+{% block title %}Login{% endblock title %}
+{% block heading %}WISSHY{% endblock heading %}
 {% block content %}
 
-<div class="container mx-auto mt-10">
-    <h1 class="text-2xl font-bold mb-4">Custom Login Page</h1>
-    <!-- Your custom login form here -->
-    <form method="post">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" class="border-gray-400 border-solid border py-2 px-4 rounded mb-2">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" class="border-gray-400 border-solid border py-2 px-4 rounded mb-2">
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Login</button>
-    </form>
-    <!-- Login with Google button -->
-    <form method="post" action="{% url 'account_login' %}">
+<div class="flex flex-col items-center justify-center text-white mt-4">
+    <div class="text-xl ">Create a good and animated Wish for your Love ones</div>
+    <div class="text-md font-bold">sample wishes(to give you the idea)</div>
+    <a class="text-blue-600 underline" href="https://halwaihbd.netlify.app/">birthday wish</a>
+    <a class="text-blue-600 underline" href="https://balentine.netlify.app/">Proposal wish</a>
+</div>
+<div class="container mx-auto mt-10 flex flex-col items-center justify-center">
+    <h1 class="text-2xl font-semibold mb-4 text-white">Login to proceed forward</h1>
+    <form method="post" action="{% provider_login_url "google" %}">
         {% csrf_token %}
         <input type="hidden" name="google" value="true">
         <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">Login with Google</button>
